@@ -1,0 +1,6 @@
+[-syll,+back]
+[+low,+syll] ([-syll] ?)*$
+^[+seg] a [+seg]
+i b a
+^([-syll] ?)*([+syll] ?)+([-syll] ?)*$
+(s|sh|zh) [+syll]
