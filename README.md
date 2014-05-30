@@ -5,12 +5,12 @@ Produces RE-ready versions of featurally defined constraints. Can be used as a c
 
 ###positional arguments:
 
-  constraint_file_name  Name of constraints file
+  constraint_file_name : Name of constraints file
 
-  feature_file_name     Name of feature file
+  feature_file_name : Name of feature file
 
-  outfile               Name of output file
+  outfile : Name of output file
 
 ###optional arguments:
 
-  -h, --help            show this help message and exit
+  -h, --help : show this help message and exit
