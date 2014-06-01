@@ -47,9 +47,14 @@ def convert_constraints(constraints, f_dict):
         splitcon = re.split('([\[\]])',c)
         for i in range(1,len(splitcon)-1):
             if splitcon[i-1] == '[' and splitcon[i+1] == ']':
-                splitcon[i-1] = '('
-                splitcon[i+1] = ')'
-                vals_features = splitcon[i].split(',')
+                if splitcon[i][0] == '^': # complementation operator
+                    splitcon[i-1] = '[^('
+                    splitcon[i+1] = ')]'
+                    vals_features = splitcon[i][1:].split(',')
+                else:
+                    splitcon[i-1] = '('
+                    splitcon[i+1] = ')'
+                    vals_features = splitcon[i].split(',')
                 splitcon[i] = natural_class(vals_features,f_dict)
         re_constraints.append(''.join(splitcon))
     return re_constraints
