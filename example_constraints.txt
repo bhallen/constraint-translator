@@ -5,3 +5,5 @@ i b a
 ^([-syll] ?)*([+syll] ?)+([-syll] ?)*$
 (s|sh|zh) [+syll]
 [^+syll,+back]
+[] [^+syll,+back]
+a []$

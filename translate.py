@@ -31,6 +31,8 @@ def convert_constraints(constraints, f_dict):
     """
     def natural_class(vals_features, f_dict):
         seg_list = [segment for segment in f_dict]
+        if vals_features == '':
+            return '|'.join(seg_list)
         for vf in vals_features:
             # Assumes that the first character of a feature specification is its value and that the rest is the feature name.
             the_val = vf[0]
@@ -44,6 +46,7 @@ def convert_constraints(constraints, f_dict):
 
     re_constraints = []
     for c in constraints:
+        c = c.replace('[]', '({})'.format(natural_class('',f_dict)))
         splitcon = re.split('([\[\]])',c)
         for i in range(1,len(splitcon)-1):
             if splitcon[i-1] == '[' and splitcon[i+1] == ']':
