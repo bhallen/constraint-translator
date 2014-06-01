@@ -9,7 +9,7 @@ def read_features(f_file):
     Read the feature file and return a nested dictionary of feature values.
     """
     f_dict = {}
-    m = [line.split('\t') for line in f_file.read().rstrip().split('\n')]
+    m = [line.rstrip().split('\t') for line in f_file.read().rstrip().split('\n')]
     f_names = m[0][1:]
     for line in m[1:]:
         if line[0] != 'empty':
@@ -22,7 +22,7 @@ def read_constraints(c_file):
     """
     Read the constraint file and return a list of the original constraint strings.
     """
-    return [line.split('\t')[0] for line in c_file.read().rstrip().split('\n')]
+    return [line.rstrip().split('\t')[0] for line in c_file.read().rstrip().split('\n')]
 
 
 def convert_constraints(constraints, f_dict):
